@@ -31,7 +31,7 @@ jobs:
       
       # Upload dist/ to cPanel
       - name: Upload to cPanel
-        uses: SamKirkland/FTP-Deploy-Action@4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@4.4.0
         with:
           server: ${{ secrets.CPANEL_HOST }}
           username: ${{ secrets.CPANEL_USERNAME }}
