@@ -4,34 +4,34 @@ on:
   push:
     branches:
       - main
-  
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-      # 1 get the repository
+      # 1. Get repository
       - name: Checkout Repository
-        uses: actions/checkout@v3
-      
-      # 2 install node 
+        uses: actions/checkout@v6
+
+      # 2. Install Node
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      # 3 install dependencies
+      # 3. Install dependencies
       - name: Install Dependencies
         run: npm ci
-      
-      # 4 build astro
+
+      # 4. Build Astro
       - name: Build Astro
         run: npm run build
-      
-      # Upload dist/ to cPanel
+
+      # 5. Upload dist/ to cPanel
       - name: Upload to cPanel
-        uses: SamKirkland/FTP-Deploy-Action@4.4.0
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.CPANEL_HOST }}
           username: ${{ secrets.CPANEL_USERNAME }}
