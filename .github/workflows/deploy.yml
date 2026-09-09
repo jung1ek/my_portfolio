@@ -1,0 +1,40 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1 get the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      
+      # 2 install node 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # 3 install dependencies
+      - name: Install Dependencies
+        run: npm ci
+      
+      # 4 build astro
+      - name: Build Astro
+        run: npm run build
+      
+      # Upload dist/ to cPanel
+      - name: Upload to cPanel
+        uses: SamKirkland/FTP-Deploy-Action@4.3.5
+        with:
+          server: ${{ secrets.CPANEL_HOST }}
+          username: ${{ secrets.CPANEL_USERNAME }}
+          password: ${{ secrets.CPANEL_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: /public_html/
