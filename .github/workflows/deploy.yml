@@ -28,38 +28,13 @@ jobs:
       # 4. Build Astro
       - name: Build Astro
         run: npm run build
-        
-      # check ftp 
-      - name: Check FTP secrets
-        shell: bash
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          if [ -z "$FTP_SERVER" ]; then
-            echo "FTP_SERVER is missing"
-            exit 1
-          fi
-
-          if [ -z "$FTP_USERNAME" ]; then
-            echo "FTP_USERNAME is missing"
-            exit 1
-          fi
-
-          if [ -z "$FTP_PASSWORD" ]; then
-            echo "FTP_PASSWORD is missing"
-            exit 1
-          fi
-
-          echo "All FTP secrets are available."
 
       # 5. Upload dist/ to cPanel
       - name: Upload to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
-          server: ftp.jung1ek.com.np
-          username: ftp_github@tekjung.com.np
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: /public_html/
