@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Math visualizer project">
+  <rect width="1200" height="675" fill="#f7f4ee"/>
+  <circle cx="600" cy="338" r="210" fill="none" stroke="#1c1916" stroke-width="8"/>
+  <path d="M390 338h420M600 128v420" stroke="#c9b8a2" stroke-width="4"/>
+  <circle cx="748" cy="230" r="14" fill="#8a4b2a"/>
+  <path d="M600 338 L748 230" stroke="#8a4b2a" stroke-width="6"/>
+</svg>

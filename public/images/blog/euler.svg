@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Euler cover">
+  <rect width="1200" height="675" fill="#17202a"/>
+  <circle cx="600" cy="338" r="200" fill="none" stroke="#9ec9c0" stroke-width="10"/>
+  <circle cx="800" cy="338" r="16" fill="#e0a078"/>
+  <path d="M600 338h200M600 138v400" stroke="#3d4d5c" stroke-width="6"/>
+  <path d="M600 338 L800 338" stroke="#e0a078" stroke-width="8"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Tracebox project">
+  <rect width="1200" height="675" fill="#f7f4ee"/>
+  <path d="M140 160h920M140 160v360" stroke="#1c1916" stroke-width="6"/>
+  <rect x="220" y="300" width="40" height="220" fill="#8a4b2a"/>
+  <rect x="320" y="240" width="40" height="280" fill="#1c1916"/>
+  <rect x="420" y="360" width="40" height="160" fill="#8a4b2a"/>
+  <rect x="520" y="200" width="40" height="320" fill="#1c1916"/>
+  <rect x="620" y="280" width="40" height="240" fill="#8a4b2a"/>
+  <rect x="720" y="220" width="40" height="300" fill="#1c1916"/>
+  <rect x="820" y="320" width="40" height="200" fill="#8a4b2a"/>
+</svg>

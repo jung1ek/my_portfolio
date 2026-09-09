@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Autograd cover">
+  <rect width="1200" height="675" fill="#1f2a24"/>
+  <circle cx="260" cy="220" r="54" fill="#c4a574"/>
+  <circle cx="520" cy="340" r="54" fill="#8fbf9f"/>
+  <circle cx="820" cy="220" r="54" fill="#c4a574"/>
+  <circle cx="680" cy="500" r="54" fill="#d98c5f"/>
+  <path d="M314 220h152M574 340h192M520 394v52M820 274v160" stroke="#f3eee6" stroke-width="8"/>
+</svg>

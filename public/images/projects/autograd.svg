@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Tiny Autograd project">
+  <rect width="1200" height="675" fill="#f7f4ee"/>
+  <rect x="80" y="80" width="1040" height="515" fill="none" stroke="#1c1916" stroke-width="6"/>
+  <circle cx="340" cy="240" r="46" fill="#8a4b2a"/>
+  <circle cx="600" cy="400" r="46" fill="#1c1916"/>
+  <circle cx="860" cy="240" r="46" fill="#8a4b2a"/>
+  <path d="M386 240h168M646 400h168M600 354V286M860 286V400" stroke="#1c1916" stroke-width="6"/>
+</svg>

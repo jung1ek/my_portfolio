@@ -1,0 +1,17 @@
+---
+import { site } from '../data/site';
+---
+
+<section class="hero" aria-labelledby="intro-heading">
+  <p class="hero__kicker">Personal site · replace this copy in <code>src/data/site.ts</code></p>
+  <div class="hero__row">
+    <div>
+      <h1 id="intro-heading">Hi, I'm {site.name}.</h1>
+      <p class="hero__role">{site.role}</p>
+      <p>{site.description}</p>
+    </div>
+    <div class="avatar" aria-hidden="false">
+      <img src="/images/avatar.svg" alt={`${site.name} portrait placeholder`} width="120" height="120" />
+    </div>
+  </div>
+</section>

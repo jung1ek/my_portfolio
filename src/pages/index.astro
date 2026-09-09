@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import WritingPreview from '../components/WritingPreview.astro';
+import ProjectList from '../components/ProjectList.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { getPosts, getProjects } from '../lib/content';
+import { site } from '../data/site';
+
+const posts = (await getPosts()).slice(0, 4);
+const featured = await getProjects();
+const projects = (featured.filter((p) => p.data.featured).length
+  ? featured.filter((p) => p.data.featured)
+  : featured
+).slice(0, 3);
+---
+
+<BaseLayout>
+  <Hero />
+
+  <section class="section" aria-labelledby="about-heading">
+    <div class="section__head">
+      <h2 id="about-heading">A little context</h2>
+      <a href="/about/">About →</a>
+    </div>
+    <p>
+      I care about the layer underneath the framework: how memory moves, how models learn, and how a
+      small program can stay understandable years later. This site is where I keep notes on that work.
+    </p>
+  </section>
+
+  <section class="section" aria-labelledby="writing-heading">
+    <div class="section__head">
+      <h2 id="writing-heading">Latest writing</h2>
+      <a href="/writing/">Read all →</a>
+    </div>
+    <WritingPreview posts={posts} />
+  </section>
+
+  <section class="section" aria-labelledby="projects-heading">
+    <div class="section__head">
+      <h2 id="projects-heading">What I've been working on</h2>
+      <a href="/projects/">View all →</a>
+    </div>
+    <ProjectList projects={projects} />
+  </section>
+
+  <section class="cta" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Say hello</h2>
+    <p>
+      If you want to talk about systems, ML internals, or a project you're building, email
+      <a href={`mailto:${site.email}`}>{site.email}</a> or find me on GitHub.
+    </p>
+    <SocialLinks />
+  </section>
+</BaseLayout>

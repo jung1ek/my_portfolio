@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Rust cover">
+  <rect width="1200" height="675" fill="#3b241c"/>
+  <circle cx="600" cy="338" r="180" fill="none" stroke="#e0a078" stroke-width="18"/>
+  <circle cx="600" cy="338" r="18" fill="#e0a078"/>
+  <path d="M600 158v-50M600 568v50M420 248l-42-42M822 470l42 42M420 428l-42 42M822 206l42-42" stroke="#e0a078" stroke-width="14" stroke-linecap="round"/>
+</svg>

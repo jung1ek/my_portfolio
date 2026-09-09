@@ -1,0 +1,54 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Tags from '../components/Tags.astro';
+import { formatDate, type Project } from '../lib/content';
+import { render } from 'astro:content';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const year = project.data.date.getFullYear();
+---
+
+<BaseLayout
+  title={project.data.title}
+  description={project.data.description}
+  image={project.data.image}
+  imageAlt={project.data.imageAlt ?? project.data.title}
+>
+  <article class="article-hero">
+    <p class="placeholder-note">
+      Placeholder project — replace <code>src/content/projects/{project.id}.md</code> with your own case study.
+    </p>
+    <p class="meta">
+      <time datetime={project.data.date.toISOString()}>{formatDate(project.data.date)}</time>
+      · {year}
+      {project.data.status && <> · {project.data.status}</>}
+    </p>
+    <h1>{project.data.title}</h1>
+    <p class="lede">{project.data.description}</p>
+    <Tags tags={project.data.technologies} />
+    <div class="project-links">
+      {project.data.github && (
+        <a class="btn" href={project.data.github} rel="noopener noreferrer">GitHub</a>
+      )}
+      {project.data.demo && (
+        <a class="btn btn--ghost" href={project.data.demo} rel="noopener noreferrer">Live demo</a>
+      )}
+    </div>
+    <div class="cover">
+      <img
+        src={project.data.image}
+        alt={project.data.imageAlt ?? ''}
+        width="1200"
+        height="675"
+      />
+    </div>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

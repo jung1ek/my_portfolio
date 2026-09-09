@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Tek Jung">
+  <rect width="200" height="200" fill="#e8d9c8"/>
+  <circle cx="100" cy="78" r="36" fill="#8a4b2a"/>
+  <path d="M40 176c12-36 40-52 60-52s48 16 60 52" fill="#2c241e"/>
+  <text x="100" y="86" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#f7f4ee">TJ</text>
+</svg>

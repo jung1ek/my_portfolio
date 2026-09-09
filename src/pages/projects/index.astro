@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectList from '../../components/ProjectList.astro';
+import { getProjects } from '../../lib/content';
+
+const projects = await getProjects();
+---
+
+<BaseLayout
+  title="Projects"
+  description="Selected software I'm building or have shipped."
+  wide
+>
+  <h1 class="page-title">Projects</h1>
+  <p class="lede">
+    Selected work. Add a Markdown file in <code>src/content/projects/</code> to publish a new case
+    study.
+  </p>
+  <ProjectList projects={projects} />
+</BaseLayout>

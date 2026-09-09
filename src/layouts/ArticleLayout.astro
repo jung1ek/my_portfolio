@@ -1,0 +1,66 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import { formatDate, readingTime, type Post } from '../lib/content';
+import { site } from '../data/site';
+import { render } from 'astro:content';
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const minutes = readingTime(post.body ?? '');
+const canonical = new URL(`/writing/${post.id}/`, site.url).href;
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.image}
+  imageAlt={post.data.imageAlt ?? post.data.title}
+  type="article"
+  publishedTime={post.data.date}
+  tags={post.data.tags}
+  author={post.data.author}
+>
+  <article class="article-hero" itemscope itemtype="https://schema.org/BlogPosting">
+    <p class="placeholder-note">
+      Placeholder article — replace <code>src/content/posts/{post.id}.md</code> with your own writing.
+    </p>
+    <p class="meta">
+      <time itemprop="datePublished" datetime={post.data.date.toISOString()}>
+        {formatDate(post.data.date)}
+      </time>
+      · {minutes}
+      {post.data.tags.length > 0 && <> · {post.data.tags.join(' · ')}</>}
+    </p>
+    <h1 itemprop="headline">{post.data.title}</h1>
+    <p class="lede" itemprop="description">{post.data.description}</p>
+    <p class="meta">{post.data.author}</p>
+    <div class="cover">
+      <img
+        src={post.data.image}
+        alt={post.data.imageAlt ?? ''}
+        width="1200"
+        height="675"
+        itemprop="image"
+      />
+    </div>
+    <div class="prose" itemprop="articleBody">
+      <Content />
+    </div>
+    <NewsletterSignup />
+  </article>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.data.title,
+    description: post.data.description,
+    datePublished: post.data.date.toISOString(),
+    author: { '@type': 'Person', name: post.data.author },
+    image: new URL(post.data.image, site.url).href,
+    mainEntityOfPage: canonical,
+  })} />
+</BaseLayout>

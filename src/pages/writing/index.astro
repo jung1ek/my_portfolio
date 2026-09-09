@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogList from '../../components/BlogList.astro';
+import NewsletterSignup from '../../components/NewsletterSignup.astro';
+import { getPosts } from '../../lib/content';
+
+const posts = await getPosts();
+---
+
+<BaseLayout
+  title="Writing"
+  description="Notes on programming, systems, and learning in public."
+  wide
+>
+  <h1 class="page-title">Writing</h1>
+  <p class="lede">
+    Essays and working notes. Add a new Markdown file in <code>src/content/posts/</code> and it will
+    show up here automatically.
+  </p>
+  <BlogList posts={posts} />
+  <NewsletterSignup />
+</BaseLayout>

@@ -1,0 +1,15 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© {year} {site.name}</span>
+    <nav aria-label="Social">
+      <a href={site.social.github} rel="noopener noreferrer">GitHub</a>
+      <a href={site.social.linkedin} rel="noopener noreferrer">LinkedIn</a>
+      <a href="/rss.xml">RSS</a>
+    </nav>
+  </div>
+</footer>

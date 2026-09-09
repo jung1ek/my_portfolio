@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title="About" description={`About ${site.name}, ${site.role}`}>
+  <h1 class="page-title">About</h1>
+  <p class="placeholder-note">Replace this page with your own bio. The skills below come from the original site.</p>
+  <div class="prose">
+    <p>
+      I'm {site.name}. I write software, poke at machine learning, and try to understand computers
+      from the instruction set up.
+    </p>
+    <p>
+      Most of my time goes into small, serious programs: autodiff engines, visualizers, and tools that
+      make a concept feel physical. I prefer work I can explain on a whiteboard.
+    </p>
+    <p>
+      This site is a quiet place for that work — writing first, projects second, almost nothing in
+      between.
+    </p>
+  </div>
+  <div class="skills">
+    <div>
+      <h3>Programming</h3>
+      <p>Python, Java, Rust</p>
+    </div>
+    <div>
+      <h3>Machine learning</h3>
+      <p>NLP, neural networks</p>
+    </div>
+    <div>
+      <h3>Systems</h3>
+      <p>Low-level programming and performance</p>
+    </div>
+  </div>
+  <section class="cta">
+    <h2>Elsewhere</h2>
+    <SocialLinks />
+  </section>
+</BaseLayout>

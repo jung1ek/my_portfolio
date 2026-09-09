@@ -1,0 +1,23 @@
+---
+import { projectUrl, type Project } from '../lib/content';
+import Tags from './Tags.astro';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const href = projectUrl(project);
+---
+
+<a class="project-item" href={href}>
+  <div class="project-thumb">
+    <img src={project.data.image} alt="" width="380" height="304" loading="lazy" decoding="async" />
+  </div>
+  <div>
+    {project.data.status && <div class="status">{project.data.status}</div>}
+    <h3>{project.data.title}</h3>
+    <p>{project.data.description}</p>
+    <Tags tags={project.data.technologies} />
+  </div>
+</a>
